@@ -7,12 +7,12 @@ var employees = [atticus, jem, boo, scout];
 var employeesTotal = employees;
 
 for(var i = 0; i < employees.length; i++){
-  employeesTotal[i][1] = bonus(employees[i]);
+  employeesTotal[i][1] = sti(employees[i]);
   console.log(employeesTotal[i]);
 
 }
 
-function sti(emp2, percentage){
+function empRating(emp2, percentage){
   if(emp2[3] <= 2){
     return percentage;
   }
@@ -27,12 +27,12 @@ function sti(emp2, percentage){
   }
   return percentage;
 }
-function bonus(emp){
+function sti(emp){
   var temp = 0;
   if(emp[1].length === 4){
     temp = 5;
   }
-  temp = sti(emp, temp);
+  temp = empRating(emp, temp);
   if(emp[2] >= 65000){
     temp -= 1;
     if(temp < 0){
@@ -42,5 +42,6 @@ function bonus(emp){
   if(temp > 13){
     temp = 13;
   }
-  return temp;
+
+  return;
 }

@@ -11,6 +11,7 @@ var employeesTotal = employees;
 for(var i = 0; i < employees.length; i++){
   employeesTotal[i][1] = sti(employees[i]);
   bonusTotal(employees[i], employeesTotal[i]);
+  employeesTotal[i][1] += "%";
   console.log(employeesTotal[i]);
 
 }

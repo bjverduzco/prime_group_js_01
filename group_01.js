@@ -12,7 +12,16 @@ for(var i = 0; i < employees.length; i++){
 
 function sti(emp, percentage){
   if(emp[3] <= 2){
-    percentage
+    return percentage;
+  }
+  if(emp[3] === 3){
+    return percentage += 4;
+  }
+  if(emp[3] === 4){
+    return percentage += 6;
+  }
+  if(emp[3] === 5){
+    return percentage += 10;
   }
 }
 function bonus(emp){

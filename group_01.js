@@ -8,6 +8,7 @@ var employeesTotal = employees;
 
 for(var i = 0; i < employees.length; i++){
   employeesTotal[i][1] = sti(employees[i]);
+  bonusTotal(employees[i], employeesTotal[i]);
   console.log(employeesTotal[i]);
 
 }
@@ -27,13 +28,14 @@ function empRating(emp2, percentage){
   }
   return percentage;
 }
+
 function sti(emp){
   var temp = 0;
   if(emp[1].length === 4){
     temp = 5;
   }
   temp = empRating(emp, temp);
-  if(emp[2] >= 65000){
+  if(parseInt(emp[2]) >= 65000){
     temp -= 1;
     if(temp < 0){
       temp = 0;
@@ -43,5 +45,14 @@ function sti(emp){
     temp = 13;
   }
 
-  return;
+  return temp;
+}
+
+function bonusTotal(emp, empTotal){
+    for(var j = 0; j < emp.length; i++){
+      var actualSti = parseInt(empTotal[1]) * (0.01 * parseInt(emp[2]));
+      empTotal[2] = parseInt(emp[2]) + actualSti;
+      empTotal[3] = parseInt(actualSti);
+      return empTotal;
+    }
 }

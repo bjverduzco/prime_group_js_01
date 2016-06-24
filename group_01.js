@@ -4,16 +4,24 @@ var atticus = ["Atticus", "2405", "47000", 3];
 var jem = ["Jem", "62347", "63500", 4];
 var boo = ["Boo", "11435", "54000", 3];
 var scout = ["Scout", "6243", "74750", 5];
+var atticusFinal = [];
+var jemFinal = [];
+var booFinal = [];
+var scoutFinal = [];
 
 var employees = [atticus, jem, boo, scout];
-var employeesTotal = employees;
+var employeesTotal = [atticusFinal, jemFinal, booFinal, scoutFinal];
 
 for(var i = 0; i < employees.length; i++){
-  employeesTotal[i][1] = sti(employees[i]);
+  employeesTotal[i][0] = employees[i][0];
+  employeesTotal[i][1] = sti(employees[i], employeesTotal[i]);
   bonusTotal(employees[i], employeesTotal[i]);
   employeesTotal[i][1] += "%";
   employeesTotal[i][2] = "$" + employeesTotal[i][2];
   employeesTotal[i][3] = "$" + employeesTotal[i][3];
+  console.log("The original array of employees is:");
+  console.log(employees[i]);
+  console.log("The final version of the array of employees is:");
   console.log(employeesTotal[i]);
 
 }
@@ -34,7 +42,7 @@ function empRating(emp2, percentage){
   return percentage;
 }
 
-function sti(emp){
+function sti(emp, empTotal){
   var temp = 0;
   if(emp[1].length === 4){
     temp = 5;
@@ -49,7 +57,7 @@ function sti(emp){
   if(temp > 13){
     temp = 13;
   }
-
+  empTotal[1] = temp;
   return temp;
 }
 

@@ -57,7 +57,7 @@ function bonusTotal(emp, empTotal){
     for(var j = 0; j < emp.length; i++){
       var actualSti = parseInt(empTotal[1]) * (0.01 * parseInt(emp[2]));
       empTotal[2] = parseInt(emp[2]) + actualSti;
-      empTotal[3] = parseInt(actualSti);
+      empTotal[3] = Math.round(actualSti);
       return empTotal;
     }
 }
